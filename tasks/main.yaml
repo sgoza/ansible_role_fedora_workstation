@@ -1,0 +1,26 @@
+---
+
+- name: Configure RPM Fusion repositories
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+
+- name: Import public GPG keys for RPM Fusion
+  rpm_key:
+    state: present
+    key: "{{ role_path }}/files/{{ item }}"
+  loop:
+    - RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_major_version }}
+    - RPM-GPG-KEY-rpmfusion-nonfree-fedora-{{ ansible_distribution_major_version }}
+
+- name: Install Packages for h264 playback in firefox
+  dnf:
+    name: "{{ item }}"
+    state: latest
+    enablerepo: fedora-cisco-openh264
+  loop:
+    - gstreamer1-plugin-openh264
+    - mozilla-openh264
