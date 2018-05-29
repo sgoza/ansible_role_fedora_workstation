@@ -1,0 +1,2 @@
+# ansible_role_fedora_workstation
+Setup Fedora workstation
