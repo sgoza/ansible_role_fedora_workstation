@@ -23,3 +23,27 @@
       - gstreamer1-plugin-openh264
       - mozilla-openh264
     enablerepo: fedora-cisco-openh264
+
+- name: Install Packages for MP4 playback
+  dnf:
+    state: latest
+    name:
+      - ffmpeg-libs
+      - ffmpeg
+      - x264-libs
+      - x265-libs
+      - gstreamer-ffmpeg
+      - gstreamer-plugins-bad
+      - gstreamer-plugins-bad-free
+      - gstreamer-plugins-bad-free-extras
+      - gstreamer-plugins-good
+      - gstreamer-plugins-good-extras
+      - gstreamer-plugins-ugly
+      - libmpeg2
+      - gstreamer1-libav
+      - gstreamer1-plugins-good-extras
+      - gstreamer1-plugins-ugly
+      - gstreamer1-vaapi
+      - gstreamer1-plugins-bad-freeworld
+      - compat-ffmpeg28
+      - mozilla-openh264
