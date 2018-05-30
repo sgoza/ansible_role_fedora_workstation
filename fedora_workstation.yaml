@@ -1,0 +1,7 @@
+---
+
+- name: Setup Fedora Workstation
+  hosts: localhost
+  tasks:
+    - include_role:
+       name: ansible_role_fedora_workstation
