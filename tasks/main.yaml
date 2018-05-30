@@ -18,9 +18,8 @@
 
 - name: Install Packages for h264 playback in firefox
   dnf:
-    name: "{{ item }}"
     state: latest
+    name:
+      - gstreamer1-plugin-openh264
+      - mozilla-openh264
     enablerepo: fedora-cisco-openh264
-  loop:
-    - gstreamer1-plugin-openh264
-    - mozilla-openh264
